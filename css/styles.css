@@ -323,7 +323,7 @@ select{
 .btnHomeBack{
     font-size: 24px !important;
 }
-#margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats{
+#margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats, #margAjoutResa{
     margin-bottom: 20px;
     margin-left: 350px;
 }
