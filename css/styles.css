@@ -1,0 +1,511 @@
+@charset "utf-8";
+/* CSS Document */
+/*********TOUT*********/
+body, html {
+    height: 100%;
+    margin: 0;
+    /*font-family: 'Lato', sans-serif;*/
+    font-family: "Segoe UI", "sans-serif";
+    color: #777;
+    box-sizing: border-box;
+}
+select{
+    display: block !important;
+}
+/*********FIN TOUT*****/
+/*********NAV*********/
+#nav_link1, #nav_link2, #nav_link3{
+    font-family: 'Bungee Shade', cursive;
+    color: #887E8E;
+    font-size: 16px;
+}
+#nav_link1:hover, #nav_link2:hover, #nav_link3:hover{
+    color: #fff;
+    background-color: #343a40;
+}
+#navbarButtonResponsive{
+    margin-top: 20px;
+    margin-right: 10px;
+    background-color: #887E8E;
+}
+/*********FIN NAV*****/
+/*********CONTAINER*********/
+/*******PARALLAX*******/
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bgimg-1 {
+    background-image: url("../img/restaurant.jpg");
+    min-height: 100%;
+}
+
+.bgimg-2 {
+    background-image: url("../img/cartes.jpg");
+    min-height: 400px;
+}
+
+.bgimg-3 {
+    background-image: url("../img/reservation.jpg");
+    min-height: 400px;
+}
+.bgimg-4{
+    background-image: url("../img/contact.jpg");
+    min-height: 100%;
+}
+.bgimg-5{
+    background-image: url("../img/menu.jpg");
+    min-height: 400px;
+}
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+/*******STYLE DU PARALLAX*******/
+.bgimg-2 .bgimg-2-carte,
+.bgimg-5 .bgimg-5-menus,
+.bgimg-3 .bgimg-3-reservation,
+.bgimg-4 .bgimg-4-contact{
+    background-color: transparent;
+    font-size: 25px;
+    color: #f7f7f7;
+}
+#divCarte, #divMenus, #divReservation, #divContact{
+    position: relative;
+}
+#divCarte #carte,
+#divMenus #menus,
+#divReservation #reservation,
+#divContact #contact{
+    color: #ddd;
+    background-color: #282E34;
+    text-align: center;
+    padding: 50px 80px;
+    text-align: justify;
+}
+/*******FINSTYLE DU PARALLAX*******/
+/*******FIN PARALLAX*******/
+#accueil{
+    color: #777;
+    background-color: white;
+    text-align: center;
+    padding: 50px 80px;
+    text-align: justify;
+}
+#accueil p{
+    font-size: 16px;
+    margin-top: 20px;
+}
+#accueil h1 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    /*font: 20px "Lato", sans-serif;*/
+    color: #111;
+    text-align: center;
+    font-size: 24px;
+}
+/**********************************************************************************************************************/
+.col-sm-offset-1 {
+    margin-left: 0% !important;
+}
+.col-sm-10 {
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+/**********************************************************************************************************************/
+#title_cartes{
+    color: #282e34;
+}
+#cartes h2{
+    /* font-family: 'Bungee Shade', cursive; */
+    color: #ffffff;
+    border: #887E8E 2px solid;
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+    margin-top: 20px;
+}
+#cartes h3{
+    /* font-family: 'Bungee Shade', cursive; */
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+#cartes p{
+    font-size: 16px;
+}
+#cartes strong{
+    float: left;
+}
+#cartes i{
+    float: right;
+}
+#cartes hr{
+    border: #887E8E 1px solid;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+/*********FORMULAIRE RESA*****/
+/**********************************************************************************************************************/
+#reservation #inputLastnameResa,
+#reservation #inputFirstnameResa,
+#reservation #inputTelResa,
+#reservation #inputMailResa,
+#reservation #inputDateResa,
+#reservation #selectHourResa,
+#reservation #inputNbPersResa,
+#reservation #selectNumTable{
+    width: 115%;
+}
+#imgPlanResa{
+    margin-top: 20px;
+}
+#submitResa2{
+    margin-top: 20px;
+    width: 200px;
+    font-size: 14px;
+}
+#pPlanResa{
+    margin: 20px 0 20px 0;
+}
+#formResa{
+    font-size: 14px;
+}
+#formResa legend{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#formResa .col-md-6{
+    margin-bottom: 10px;
+}
+#btnSubmitResa .btn-primary {
+    color: #fff;
+    background-color: #887e8e !important;
+    border-color: #887e8e !important;
+}
+#btnSubmitResa2 .btn-blue-grey {
+    color: #fff;
+    background-color: #887e8e !important;
+    border-color: #887e8e !important;
+}
+#formWidth{
+    max-width: 60%;
+}
+#planWidth{
+     max-width: 40%;
+}
+#labelLastnameWidth,
+#labelFirstnameWidth,
+#labelTelResaWidth,
+#labelMailWidth,
+#labelDateResaWidth,
+#labelHourResaWidth,
+#labelNbPersResaWidth,
+#labelNumTableWidth{
+    max-width: 62%;
+    padding-right: 0;
+}
+#inputLastnameWidth,
+#inputFirstnameWidth,
+#inputTelResaWidth,
+#inputMailWidth,
+#inputDateResaWidth,
+#selectHourResaWidth,
+#inputNbPersResaWidth,
+#selectNumTableWidth{
+     max-width: 38%;
+     padding-left: 0;
+}
+/*********FIN FORMULAIRE RESA*****/
+/*********FIN CONTAINER*****/
+/*********FOOTER*********/
+#footerContact{
+    background-color: #887E8E;
+}
+#aLienFooterAcc, #aLienFooterMC, #aLienFooterRes{
+    font-size: 2rem;
+    font-family: 'Bungee Shade', cursive;
+    color: #ffffff;
+}
+#aLienFooterAcc:hover, #aLienFooterMC:hover, #aLienFooterRes:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.footerHrDessus{
+    background-color: white;
+    margin: 0 15%;
+}
+.footerHrDessous{
+    background-color: white;
+    margin: 10% 15% 5%;
+}
+#fontAwesome{
+    color: grey;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+/*#hrContactFooter{
+	border-top: 1px solid #bbbbbb;
+	width: 50%;
+}*/
+.style_prevu_kit{
+    display:inline-block;
+    border:0;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+}
+.style_prevu_kit:hover{
+    box-shadow: 0px 0px 150px #000000;
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 200ms ease-in;
+    transform: scale(1.5);
+}
+.aContactFooter{
+    color: #000;
+}
+.aContactFooter:link{
+    text-decoration:none;
+}
+.box1, .box2, .box3{
+    background-color: #282E34;
+    border: 1px solid #fff;
+}
+.box1:hover, .box2:hover, .box3:hover{
+    background-color: #282E34;
+}
+.box1 a, .box2 a, .box3 a{
+    color: #bbbbbb;
+    font-weight: bold;
+}
+.box1 a:hover, .box2 a:hover, .box3 a:hover{
+    color: #fff;
+}
+.box1 a i, .box2 a i, .box3 a i{
+    font-size: 24px;
+    text-decoration: none;
+}
+.pContactFooter{
+    margin: 1px;
+}
+/*********FIN FOOTER*****/
+/*********BACK***********/
+.btnHomeBack{
+    font-size: 24px !important;
+}
+#margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats{
+    margin-bottom: 20px;
+    margin-left: 350px;
+}
+#margPlats, #margCommande{
+    margin-bottom: 20px;
+}
+#margSuppPlats p{
+    font-size: 16px;
+}
+#addDishes,
+#addDishes label,
+#addDishes input,
+#addDishes select,
+#addDishes select option,
+#addDishes textarea,
+#addDishes button{
+    font-size: 16px;
+}
+#addDishes #namePrice{
+    margin-top: 15px;
+}
+#addDishes select{
+    height: 40px;
+}
+#updateDishes,
+#updateDishes label,
+#updateDishes input,
+#updateDishes select,
+#updateDishes select option,
+#updateDishes textarea,
+#updateDishes button{
+    font-size: 16px;
+}
+#updateDishes #modifNamePrice{
+    margin-top: 15px;
+}
+#updateDishes select{
+    height: 40px;
+}
+#tableListPlats,
+#tableListPlats thead,
+#tableListPlats tbody,
+#tableListPlats th{
+    font-size: 14px;
+}
+#tableListPlats .name{
+    width: 20%;
+}
+#tableListPlats .price{
+    width: 5%;
+}
+#tableListPlats .desc{
+    width: 55%;
+}
+#tableListPlats .cat{
+    /*width: 15%;*/
+}
+#tableListPlats .subCat{
+    width: 5%;
+}
+#tableListPlats .process{
+    width: 30%;
+}
+/**********************************************************************************************************************/
+/*********NAV ADMIN BACK***********/
+/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}
+@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}
+.chartjs-render-monitor{
+    -webkit-animation:chartjs-render-animation 0.001s;
+    animation:chartjs-render-animation 0.001s;
+}
+#slide-out{
+    width: 30rem;
+    background-color: #343a40;
+    /*font-size: 12rem;*/
+}
+#liLogo #divLogo,
+#liLogo #divLogo #aLogo,
+#liLogo #divLogo #aLogo #imgLogo{
+    height: auto;
+    width: 100% ;
+}
+.social li a i{
+    font-size: 3rem !important;
+}
+#searchNavAdmin div #inputSearchNavAdmin,
+#liTotalNavAdmin #ulTotal #liAccueil a,
+#liTotalNavAdmin #ulTotal #liAccueilLCDH a,
+#liTotalNavAdmin #ulTotal #liPlats a,
+#liTotalNavAdmin #ulTotal #liCommande a,
+#liTotalNavAdmin #ulTotal #liResa a{
+    font-size: 2rem;
+}
+#liTotalNavAdmin #ulTotal #liPlats #divMenuPlats ul li a,
+#liTotalNavAdmin #ulTotal #liCommande #divMenusCommande ul li a,
+#liTotalNavAdmin #ulTotal #liResa #divMenusResa ul li a{
+    font-size: 1.5rem;
+}
+/*********FIN NAV ADMIN BACK***********/
+/**********************************************************************************************************************/
+/*********FIN BACK***********/
+/*********MEDIA QUERIES*********/
+/* Turn off parallax scrolling for tablets and phones */
+@media screen and (min-width: 801px) and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+    #reservation #btnSubmitResa2 #submitResa2{
+        display: block !important;
+    }
+    #catSouscatResponsiveMobile{
+        display: none !important;
+    }
+    #catSouscatOrdi, #selectCatSouscatOrdi{
+        display: block !important;
+    }
+}
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #previous{
+        display: none;
+    }
+    #next{
+        display: none;
+    }
+    #reservation #btnSubmitResa2 #submitResa2{
+        display: none !important;
+    }
+    #submitResaResponsive{
+        display: block !important;
+        font-size: 14px;
+    }
+    #dateTimeSubmitResa{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #reservation #submitResa{
+        width: 100px;
+        height: 30px !important;
+    }
+    #formWidth{
+        max-width: 100%;
+    }
+    #planWidth{
+         max-width: 100%;
+         margin-bottom: 20px;
+    }
+    #labelLastnameWidth,
+    #labelFirstnameWidth,
+    #labelTelResaWidth,
+    #labelMailWidth,
+    #labelDateResaWidth,
+    #labelHourResaWidth,
+    #labelNbPersResaWidth,
+    #labelNumTableWidth{
+        max-width: 100%;
+        padding-right: 0;
+    }
+    #inputLastnameWidth,
+    #inputFirstnameWidth,
+    #inputTelResaWidth,
+    #inputMailWidth,
+    #inputDateResaWidth,
+    #selectHourResaWidth,
+    #inputNbPersResaWidth,
+    #selectNumTableWidth{
+         max-width: 100%;
+         padding-left: 0;
+         text-align: center;
+    }
+    #margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats{
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+    #catSouscatResponsiveMobile{
+        display: block !important;
+    }
+    #catSouscatOrdi, #selectCatSouscatOrdi{
+        display: none !important;
+    }
+    #labelCatResponsiveMobile, #labelSouscatResponsiveMobile{
+        margin-top: -20px;
+    }
+}
+/*********FIN MEDIA QUERIES*****/
