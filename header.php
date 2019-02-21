@@ -39,6 +39,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="nav_link3" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <button id="buttonOpenCart" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Panier</button>
+                    </li>
                 </ul>
             </div>
 	</nav>

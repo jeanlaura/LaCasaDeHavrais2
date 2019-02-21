@@ -131,13 +131,40 @@
         <script src="../js/mdb.js"></script>
         <script src="../js/mdb.min.js"></script>
         <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap-datetimepicker.min.js"></script>
+<!--        <script src="../js/bootstrap-datetimepicker.min.js"></script>
         <script src="../js/jquery.datetimepicker.full.js"></script>
         <script src="../js/jquery.datetimepicker.full.min.js"></script>
-        <script src="../js/jquery.datetimepicker.js"></script>
-        <script src="../js/jquery.js"></script>
-        <script src="../js/timePicker.js"></script>
+        <script src="../js/jquery.datetimepicker.js"></script>-->
+<!--        <script src="../js/timePicker.js"></script>-->
         <script src="../js/script.js"></script>
+        <script>
+            $.getJSON( "api/shop/products.php", function( data ) {
+  var items = [];
+  $.each( data, function( key, val ) {
+    items.push( "<li id='" + key + "'>" + val + "</li>" );
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});
+            var itemsArrayLength = <?= count($arrayDishesEntreesVege); ?>;
+                  
+            for ($i=1; $i < itemsArrayLength; $i++) {
+                $('#add' + $i).click(function (){    // permet d'ajouter le produit au panier au click sur le bouton d'ajout
+                     $(this).siblings().clone().appendTo('#cartItems').append('<button class="removeItem btn btn-light">Supprimer</button>').append('<input type="number" value="1" min="1" max="10" id="' + $(this).attr('id') + 'Quantity" />').append('<p class="quantity"></p>').append().css("display", "inline-block"); // on clone le produit dans le modal qui correspond au paneir   
+            });
+            };
+            $("#modalCart").on('click', ':input', function() {
+                $(this).attr('value', $(this).val());
+            });
+            
+            $('#modalCart').on('click', '.removeItem', function(){ //dans le panier, au click sur un bouton de suppression
+                $(this).parent().remove();
+            });
+
+        </script>
 <!------------------------------------------------------------------ ----------------------------------------------------------->
 
 <!---------------------------------------------------------------- ------------------------------------------------------------->

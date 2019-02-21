@@ -4,6 +4,32 @@
     require 'header.php';
     echo '<br /><br/><br/><br/><br/>';
 ?>
+
+<!--MODAL PANIER-->
+<div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Panier</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="cartItems" class="modal-body">
+      </div>
+        <p id="totalPrice">0</p>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Valider la commande</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--FIN MODAL PANIER-->
+
 <div class="bgimg-1">
     <div class="caption">
         <span class="border">BIENVENUE À LA CASA DE HAVRAIS</span>
@@ -28,10 +54,15 @@
                     <p><br></p>
                     <h3>V&Eacute;G&Eacute;TARIEN</h3>
                     <?php foreach ($arrayDishesEntreesVege as $dishesEntreesVege) { ?>
+                    <div>
+                        <div>
                         <p>
                             <strong><?= $dishesEntreesVege->dishes_name ?></strong><i><?= $dishesEntreesVege->dishes_price ?></i>
                             <br><?= $dishesEntreesVege->dishes_description ?>
                         </p>
+                        <button class="addProduct" id="add<?= $dishesEntreesVege->dishes_id ?>">Ajouter au panier</button>
+                        </div>
+                    </div>
                     <?php } ?>
                     <hr class="hr_entrees">
                     <h3>VIANDE</h3>
