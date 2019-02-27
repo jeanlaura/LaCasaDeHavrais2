@@ -1,6 +1,5 @@
 <?php include 'header_back.php'; ?>
 <!-- CONTENT PAGE -->
-
 <div class="container marginTop">
     <div class="row justify-content-center" id="margBienv">
         <div class="col-md-12" align="center">
@@ -8,6 +7,7 @@
         </div>
     </div>
 </div>
+<!--
 <div class="container marginTop">
     <div class="row justify-content-center" id="margPlats">
         <div class="col-md-12" align="center">
@@ -44,4 +44,5 @@
         </div>
     </div>
 </div>
+-->
 <?php include 'footer_back.php'; ?>

@@ -13,7 +13,10 @@
          */
         function addDishes() {
             // Ajouter un plat
-            $sql = $this->database->prepare('INSERT INTO `lcdh_dishes` (`dishes_name`, `dishes_description`, `dishes_price`, `categories_id`, `subCategories_id`) VALUES (:name, :description, :price, :categories, :sub_categories)');
+            $sql = $this->database->prepare('
+                    INSERT INTO `lcdh_dishes` (`dishes_name`, `dishes_description`, `dishes_price`, `categories_id`, `subCategories_id`)
+                    VALUES (:name, :description, :price, :categories, :sub_categories)
+            ');
             $sql->bindValue(':name',$this->dishes_name,PDO::PARAM_STR);
             $sql->bindValue(':description',$this->dishes_description,PDO::PARAM_STR);
             $sql->bindValue(':price',$this->dishes_price,PDO::PARAM_STR);
@@ -24,7 +27,8 @@
         // Liste des plats au total
         function listDishes() {
             $sql = $this->database->query('
-                SELECT `dishes_id`, `dishes_name` AS Plats, `dishes_description` AS Description, `dishes_price` AS Prix, `categories_name` AS Categories, `subcategories_name` AS SousCategories FROM `lcdh_dishes`
+                SELECT `dishes_id`, `dishes_name`, `dishes_description`, `dishes_price`, `categories_name`, `subcategories_name`
+                FROM `lcdh_dishes`
                 INNER JOIN `lcdh_categories` ON `lcdh_categories`.`categories_id` = `lcdh_dishes`.`categories_id`
                 INNER JOIN `lcdh_subcategories` ON `lcdh_subcategories`.`subcategories_id` = `lcdh_dishes`.`subcategories_id` 
             ');
@@ -119,7 +123,13 @@
         
         // Montrer un seul plat mais je ne m'en servirais surement pas !
         function displayDishes() {
-            $sql = $this->database->prepare('SELECT * FROM `lcdh_dishes` WHERE `dishes_id` = :id');
+            $sql = $this->database->prepare('
+                SELECT `dishes_id`, `dishes_name`, `dishes_description`, `dishes_price`, `categories_name`, `subcategories_name`
+                FROM `lcdh_dishes`
+                INNER JOIN `lcdh_categories` ON `lcdh_categories`.`categories_id` = `lcdh_dishes`.`categories_id`
+                INNER JOIN `lcdh_subcategories` ON `lcdh_subcategories`.`subcategories_id` = `lcdh_dishes`.`subcategories_id`
+                WHERE `dishes_id` = :id
+            ');
             $sql->bindValue(':id', $this->dishes_id, PDO::PARAM_INT);
             $sql->execute();
             $data = $sql->fetch(PDO::FETCH_OBJ);
@@ -127,7 +137,11 @@
         }
         // Modifier le plat
         function ModifyDishes() {
-            $sql = $this->database->prepare('UPDATE `lcdh_dishes` SET `dishes_name`=:name, `dishes_description`=:description, `dishes_price`=:price, `categories_id`=:categories, `subCategories_id`=:sub_categories WHERE `dishes_id` = :id');
+            $sql = $this->database->prepare('
+                    UPDATE `lcdh_dishes`
+                    SET `dishes_name`=:name, `dishes_description`=:description, `dishes_price`=:price, `categories_id`=:categories, `subCategories_id`=:sub_categories
+                    WHERE `dishes_id` = :id
+            ');
             $sql->bindValue(':id', $this->dishes_id, PDO::PARAM_INT);
             $sql->bindValue(':name',$this->dishes_name,PDO::PARAM_STR);
             $sql->bindValue(':description',$this->dishes_description,PDO::PARAM_STR);
@@ -142,6 +156,29 @@
             $sql->bindValue(':id', $this->dishes_id, PDO::PARAM_INT);
             return $sql->execute();
         }
+        //Recherche des plats
+        function searchDishes($search) {
+            $sql = $this->database->prepare('
+                    SELECT *
+                    FROM `lcdh_dishes`
+                    INNER JOIN `lcdh_categories` ON `lcdh_categories`.`categories_id` = `lcdh_dishes`.`categories_id`
+                    INNER JOIN `lcdh_subcategories` ON `lcdh_subcategories`.`subcategories_id` = `lcdh_dishes`.`subcategories_id`
+                    WHERE `dishes_name` LIKE :search OR `dishes_description` LIKE :search OR `categories_name` LIKE :search OR `subCategories_name` LIKE :search
+            ');
+            $sql->bindValue(':search', '%'.$search.'%', PDO::PARAM_STR);
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        }
+        
+        function getDish($dishId) {
+            $sql = $this->database->prepare('SELECT * FROM lcdh_dishes WHERE dishes_id = ?');
+            $sql->execute([$dishId]);
+            if($sql->rowCount() > 0) {
+                return $sql->fetch(PDO::FETCH_OBJ);
+            }
+            return false;
+        }
     }
+   
 ?>
 

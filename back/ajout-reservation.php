@@ -10,130 +10,118 @@
                 <a href="listReservations.php" class="btn btn-amber btnHomeBack">Liste des réservations</a>
             <?php } else { ?>
                 <form class="formResa" id="formResa" name="formResa" method="POST" action="">
-                    <fieldset>
-                        <legend>Réserver une table</legend>
-                        <div class="row" id="resaLigne1">
-                            <p>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-md-6" id="labelLastnameWidth">
-                                        <label for="inputLastnameResa">Nom&nbsp;<span class="red-text">* <?= isset($arrayError['lastnameResaErr']) ? $arrayError['lastnameResaErr'] : ''; ?></span></label>
-                                    </div>
-                                    <div class="col-md-6" id="inputLastnameWidth">
-                                        <input type="text" name="inputLastnameResa" class="form-control" id="inputLastnameResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_lastname : ''; ?>">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 col-md-6" id="labelFirstnameWidth">
-                                        <label for="inputFirstnameResa">Prénom&nbsp;<span class="red-text">* <?= isset($arrayError['firstnameResaErr']) ? $arrayError['firstnameResaErr'] : ''; ?></span></label>
-                                    </div>
-                                    <div class="col-12 col-md-6" id="inputFirstnameWidth">
-                                        <input type="text" name="inputFirstnameResa" class="form-control" id="inputFirstnameResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_firstname : ''; ?>">
-                                    </div>
-                                </div>
-                            </p>
+                    <div class="card" id="addResa">
+                        <!-- Card header -->
+                        <div class="card-header headerCard" role="tab" id="heading1" align="center">
+                            <h2 class="mb-0 mt-3">Réserver une table</h2>
                         </div>
-                        <div class="row" id="resaLigne2">
-                            <p>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 col-md-6" id="labelTelResaWidth">
-                                        <label for="inputTelResa">Numéro&nbsp;de&nbsp;téléphone&nbsp;<span class="red-text">* <?= isset($arrayError['telResaErr']) ? $arrayError['telResaErr'] : ''; ?></span></label>
-                                    </div>
-                                    <div class="col-12 col-md-6" id="inputTelResaWidth">
-                                        <input type="text" name="inputTelResa" class="form-control" id="inputTelResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_numTel : ''; ?>">
-                                    </div>
+                        <div class="card-body pt-0 lighten-1">
+                            <!---------PRENOM ET NOM----------->
+                            <div class="form-row" id="firstnameLastname resaLigne1">
+                                <div class="md-form col-md-6">
+                                    <label for="inputLastnameResa">Nom&nbsp;
+                                        <span class="red-text">* <?= isset($arrayError['lastnameResaErr']) ? $arrayError['lastnameResaErr'] : ''; ?></span>
+                                    </label>
+                                    <input type="text" name="inputLastnameResa" class="form-control" id="inputLastnameResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_lastname : ''; ?>">
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 col-md-6" id="labelMailWidth">
-                                        <label for="inputMailResa">Adresse&nbsp;e-mail&nbsp;<span class="red-text">* <?= isset($arrayError['mailResaErr']) ? $arrayError['mailResaErr'] : ''; ?></span></label>
-                                    </div>
-                                    <div class="col-12 col-md-6" id="inputMailWidth">
-                                        <input type="text" name="inputMailResa" class="form-control" id="inputMailResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_mail : ''; ?>">
-                                    </div>
+                                <div class="md-form col-md-6">
+                                    <label for="inputFirstnameResa">Prénom&nbsp;
+                                        <span class="red-text">* <?= isset($arrayError['firstnameResaErr']) ? $arrayError['firstnameResaErr'] : ''; ?></span>
+                                    </label>
+                                    <input type="text" name="inputFirstnameResa" class="form-control" id="inputFirstnameResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_firstname : ''; ?>">
                                 </div>
-                            </p>
-                        </div>
-                        <div class="row" id="resaLigne3">
-                            <p>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 col-md-6" id="labelDateResaWidth">
-                                        <label for="inputDateResa">Jour&nbsp;de&nbsp;réservation&nbsp;<span class="red-text">* <?= isset($arrayError['dateResaErr']) ? $arrayError['dateResaErr'] : ''; ?></span></label>
-                                    </div>
-                                    <div class="col-12 col-md-6" id="inputDateResaWidth">
-                                        <input class="form-control" type="date" name="inputDateResa" id="inputDateResa" min="<?= $today ?>" max="<?= $oneDateLater ?>" value="<?= isset($_POST['inputDateResa']) ? $_POST['inputDateResa'] : '' ?>" />
-                                    </div>
+                            </div>
+                            <!---------TELEPHONE ET MAIL----------->
+                            <div class="form-row" id="resaLigne2">
+                                <div class="md-form col-md-6">
+                                    <label for="inputTelResa">Numéro&nbsp;de&nbsp;téléphone&nbsp;
+                                        <span class="red-text">* <?= isset($arrayError['telResaErr']) ? $arrayError['telResaErr'] : ''; ?></span>
+                                    </label>
+                                    <input type="text" name="inputTelResa" class="form-control" id="inputTelResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_numTel : ''; ?>">
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 col-md-6" id="labelHourResaWidth">
-                                        <label for="selectHourResa">Heure&nbsp;de&nbsp;réservation</label>
+                                <div class="md-form col-md-6">
+                                    <label for="inputMailResa">Adresse&nbsp;e-mail&nbsp;
+                                        <span class="red-text">* <?= isset($arrayError['mailResaErr']) ? $arrayError['mailResaErr'] : ''; ?></span>
+                                    </label>
+                                    <input type="text" name="inputMailResa" class="form-control" id="inputMailResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_mail : ''; ?>">
+                                </div>
+                            </div>
+                            <!---------DATE ET HEURE----------->
+                            <div class="form-row" id="resaLigne3">
+                                <div class="md-form col-md-6">
+                                    <label for="inputDateResa" id="labelInputDateResa">Jour&nbsp;de&nbsp;réservation&nbsp;
+                                        <span class="red-text">* <?= isset($arrayError['dateResaErr']) ? $arrayError['dateResaErr'] : ''; ?></span>
+                                    </label>
+                                    <input class="form-control" type="date" name="inputDateResa" id="inputDateResa" min="<?= $today ?>" max="<?= $oneDateLater ?>" value="<?= isset($_POST['inputDateResa']) ? $_POST['inputDateResa'] : '' ?>" />
+                                </div>
+                                <div class="md-form col-md-6">
+                                    <label for="selectHourResa" id="labelSelectHourResa">Heure&nbsp;de&nbsp;réservation
                                         <span class="red-text">* <?= isset($arrayError['hourResaErr']) ? $arrayError['hourResaErr'] : ''; ?></span>
-                                    </div>
-                                    <div class="col-12 col-md-6" id="selectHourResaWidth">
-                                        <select class="form-control" id="selectHourResa" name="selectHourResa">
-                                            <option value="" disabled selected>Choisir une heure</option>
-                                            <option value="MIDI" disabled>MIDI</option>
-                                            <option value="11:30:00">11h30</option>
-                                            <option value="12:00:00">12h00</option>
-                                            <option value="12h30">12h30</option>
-                                            <option value="13h00">13h00</option>
-                                            <option value="13h30">13h30</option>
-                                            <option value="14h00">14h00</option>
-                                            <option value="14h30">14h30</option>
-                                            <option value="15h00">15h00</option>
-                                            <option value="SOIR" disabled>SOIR</option>
-                                            <option value="18h00">18h00</option>
-                                            <option value="18h30">18h30</option>
-                                            <option value="19h00">19h00</option>
-                                            <option value="19h30">19h30</option>
-                                            <option value="20h00">20h00</option>
-                                            <option value="20h30">20h30</option>
-                                            <option value="21h00">21h00</option>
-                                            <option value="21h30">21h30</option>
-                                            <option value="22h00">22h00</option>
-                                        </select>
-                                    </div>
+                                    </label>
+                                    <select class="browser-default custom-select" id="selectHourResa" name="selectHourResa">
+                                        <option value="" disabled selected>Choisir une heure</option>
+                                        <option value="MIDI" disabled>MIDI</option>
+                                        <option value="11:30:00">11h30</option>
+                                        <option value="12:00:00">12h00</option>
+                                        <option value="12:30:00">12h30</option>
+                                        <option value="13:00:00">13h00</option>
+                                        <option value="13:30:00">13h30</option>
+                                        <option value="14:00:00">14h00</option>
+                                        <option value="14:30:00">14h30</option>
+                                        <option value="15:00:00">15h00</option>
+                                        <option value="SOIR" disabled>SOIR</option>
+                                        <option value="18:00:00">18h00</option>
+                                        <option value="18:30:00">18h30</option>
+                                        <option value="19:00:00">19h00</option>
+                                        <option value="19:30:00">19h30</option>
+                                        <option value="20:00:00">20h00</option>
+                                        <option value="20:30:00">20h30</option>
+                                        <option value="21:00:00">21h00</option>
+                                        <option value="21:30:00">21h30</option>
+                                        <option value="22:00:00">22h00</option>
+                                    </select>
                                 </div>
-                            </p>
-                        </div>
-                        <div class="row" id="resaLigne4">
-                            <p>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 col-md-6" id="labelNbPersResaWidth">
-                                        <label for="inputNbPersResa">Nombre&nbsp;de&nbsp;personnes&nbsp;</label><span class="amber-text">*</span>
+                            </div>
+                            <!---------NOMBRE PERSONNE ET NUMERO DE TABLE----------->
+                            <div class="form-row" id="resaLigne4">
+                                <div class="md-form col-md-6">
+                                    <label for="inputNbPersResa">Nombre&nbsp;de&nbsp;personnes&nbsp;
                                         <span class="red-text">* <?= isset($arrayError['nbPersResaErr']) ? $arrayError['nbPersResaErr'] : ''; ?></span>
-                                    </div>
-                                    <div class="col-12 col-md-6" id="inputNbPersResaWidth">
-                                        <input type="text" name="inputNbPersResa" class="form-control" id="inputNbPersResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_hourResa : ''; ?>">
-                                    </div>
+                                    </label>
+                                    <input type="text" name="inputNbPersResa" class="form-control" id="inputNbPersResa" value="<?= count($arrayError) != 0 ? $resaOBJ->reservation_hourResa : ''; ?>">
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="col-12 col-md-6" id="labelNumTableWidth">
-                                        <label for="selectNumTable">Numéro&nbsp;de&nbsp;table</label>
+                                <div class="md-form col-md-6">
+                                    <label for="selectNumTable" id="labelSelectNumTable">Numéro&nbsp;de&nbsp;table
                                         <span class="red-text">* <?= isset($arrayError['numTableErr']) ? $arrayError['numTableErr'] : ''; ?></span>
-                                    </div>
-                                    <div class="col-12 col-md-6" id="selectNumTableWidth">
-                                        <select class="form-control" id="selectNumTable" name="selectNumTable">
-                                            <option value="" disabled selected>Choisir une table</option>
-                                            <option value="1">Table n°1</option>
-                                            <option value="2">Table n°2</option>
-                                            <option value="3">Table n°3</option>
-                                            <option value="4">Table n°4</option>
-                                            <option value="5">Table n°5</option>
-                                            <option value="6">Table n°6</option>
-                                            <option value="7">Table n°7</option>
-                                            <option value="8">Table n°8</option>
-                                        </select>
-                                    </div>
+                                    </label>
+                                    <select class="browser-default custom-select" id="selectNumTable" name="selectNumTable">
+                                        <option value="" disabled selected>Choisir une table</option>
+                                        <option value="1">Table n°1</option>
+                                        <option value="2">Table n°2</option>
+                                        <option value="3">Table n°3</option>
+                                        <option value="4">Table n°4</option>
+                                        <option value="5">Table n°5</option>
+                                        <option value="6">Table n°6</option>
+                                        <option value="7">Table n°7</option>
+                                        <option value="8">Table n°8</option>
+                                    </select>
                                 </div>
-                            </p>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-12" align="center" id="btnSubmitResa2">
+                        <div class="card-footer" role="tab" id="footing1">
+                            <div class="form-row">
+                                <div class="col-12 col-md-12" align="center" id="btnSubmitResa2">
                             <p>
                                 <button type="submit" class="btn btn-blue-grey" id="submitResaResponsive" name="submitResaResponsive" style="display:none;">Valider la<br>réservation</button>
                                 <button type="submit" class="btn btn-blue-grey" id="submitResa2" name="submitResa2">Valider la réservation</button>
                             </p>
-                            <p><span class="amber-text">*&nbsp;À partir de 7 personnes, veuillez nous appeler pour prendre une réservation.</span></p>
+                            <p>
+                                <span class="red-text">*&nbsp;Champs requis.</span>
+                            </p>
                         </div>
-                    </fieldset>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             <?php } ?>
         </div>

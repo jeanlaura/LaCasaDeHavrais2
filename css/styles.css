@@ -12,6 +12,13 @@ body, html {
 select{
     display: block !important;
 }
+#divCarte #carte, #divMenus #menus, #divReservation #reservation, #divContact #contact {
+    color: #ddd;
+    background-color: #282E34;
+    text-align: center;
+    padding: 50px 20px !important;
+    text-align: justify;
+}
 /*********FIN TOUT*****/
 /*********NAV*********/
 #nav_link1, #nav_link2, #nav_link3{
@@ -29,6 +36,28 @@ select{
     background-color: #887E8E;
 }
 /*********FIN NAV*****/
+/*********NAV BOTTOM*****/
+#navPanier{
+    padding-right: 0px;
+}
+#navResp .nav-item{
+    float: left;
+}
+#imgNavRespCarte,
+#imgNavRespMenus,
+#imgNavRespResa,
+#imgNavRespcontact,
+#imgNavRespPanier{
+    color: white;
+    width: 40px;
+}
+.btn .badge {
+    position: relative;
+    top: 4px !important;
+    left: 3px;
+    font-size: 12px;
+}
+/*********FIN NAV BOTTOM*****/
 /*********CONTAINER*********/
 /*******PARALLAX*******/
 .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
@@ -162,6 +191,37 @@ select{
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+/*********PANIER*******/
+#tableCart th{
+    font-size: 14px;
+}
+#theadTableCart, #trTotal{
+    background-color: #887E8E;
+}
+#totalPrice{
+    text-align: center;
+}
+#btnDishesEntreesVege,
+#btnDishesEntreesViande,
+#btnDishesEntreesVolaille,
+#btnDishesEntreesPoisson,
+#btnDishesPlatsVege,
+#btnDishesPlatsViande,
+#btnDishesPlatsVolaille,
+#btnDishesPlatsPoisson,
+#btnDishesDessert{
+    margin-bottom: 20px;
+    width: 70%;
+}
+#buttonOpenCart{
+    margin-top: 13px;
+    margin-bottom: 13px;
+    background-color: #887e8e;
+}
+#buttonOpenCart:hover{
+    color: white;
+}
+/*********FIN PANIER*********/
 /*********FORMULAIRE RESA*****/
 /**********************************************************************************************************************/
 #reservation #inputLastnameResa,
@@ -233,6 +293,17 @@ select{
      max-width: 38%;
      padding-left: 0;
 }
+/*********BACK**********/
+#labelInputDateResa{
+    top: -15px;
+}
+#labelSelectHourResa{
+    top: -15px;
+}
+#labelSelectNumTable{
+    top: -15px;
+}
+/*********FIN BACK************/
 /*********FIN FORMULAIRE RESA*****/
 /*********FIN CONTAINER*****/
 /*********FOOTER*********/
@@ -318,12 +389,23 @@ select{
 .pContactFooter{
     margin: 1px;
 }
+#numFooter, #adrFooter, #mailFooter{
+    font-size: 14px;
+}
 /*********FIN FOOTER*****/
 /*********BACK***********/
 .btnHomeBack{
     font-size: 24px !important;
 }
-#margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats, #margAjoutResa{
+#margBienv,
+#margAjoutPlats,
+#margListPlats,
+#margModifPlats,
+#margSuppPlats,
+#margAjoutResa,
+#margAffPlats,
+#margListResa,
+#margAffResa{
     margin-bottom: 20px;
     margin-left: 350px;
 }
@@ -387,6 +469,9 @@ select{
 #tableListPlats .process{
     width: 30%;
 }
+#tableAffPlats th, #tableAffPlats td{
+    font-size: 14px;
+}
 /**********************************************************************************************************************/
 /*********NAV ADMIN BACK***********/
 /* Chart.js */
@@ -410,16 +495,18 @@ select{
 .social li a i{
     font-size: 3rem !important;
 }
-#searchNavAdmin div #inputSearchNavAdmin,
-#liTotalNavAdmin #ulTotal #liAccueil a,
-#liTotalNavAdmin #ulTotal #liAccueilLCDH a,
-#liTotalNavAdmin #ulTotal #liPlats a,
-#liTotalNavAdmin #ulTotal #liCommande a,
+#searchNavAdminDishes div #inputSearchNavAdminDishes,
+#searchNavAdminCommand div #inputSearchNavAdminCommand,
+#searchNavAdminResa div #inputSearchNavAdminResa,
+#liTotalNavAdmin #ulTotal #liHome a,
+#liTotalNavAdmin #ulTotal #liHomeLCDH a,
+#liTotalNavAdmin #ulTotal #liDishes a,
+#liTotalNavAdmin #ulTotal #liCommand a,
 #liTotalNavAdmin #ulTotal #liResa a{
     font-size: 2rem;
 }
-#liTotalNavAdmin #ulTotal #liPlats #divMenuPlats ul li a,
-#liTotalNavAdmin #ulTotal #liCommande #divMenusCommande ul li a,
+#liTotalNavAdmin #ulTotal #liDishes #divMenusDishes ul li a,
+#liTotalNavAdmin #ulTotal #liCommand #divMenusCommand ul li a,
 #liTotalNavAdmin #ulTotal #liResa #divMenusResa ul li a{
     font-size: 1.5rem;
 }
@@ -432,14 +519,23 @@ select{
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
     }
-    #reservation #btnSubmitResa2 #submitResa2{
+    #reservation #btnSubmitResa2 #submitResa2,
+    #catSouscatOrdi,
+    #selectCatSouscatOrdi,
+    #navOrdi,
+    #priceBack, #descBack,
+    #priceBackForeach, #descBackForeach,
+    #modPlatsBack, #supPlatsBack,
+    #fistnameResaBack, #dateResaBack, #hourResaBack, #nbPersResaBack, #numTableResaBack,
+    #fistnameResaBackForeach, #dateResaBackForeach, #hourResaBackForeach, #nbPersResaBackForeach, #numTableResaBackForeach,
+    #modResaBack, #supResaBack{
         display: block !important;
     }
-    #catSouscatResponsiveMobile{
+    #catSouscatResponsiveMobile,
+    #navResp,
+    #affPlatsBack,
+    #affResaBack{
         display: none !important;
-    }
-    #catSouscatOrdi, #selectCatSouscatOrdi{
-        display: block !important;
     }
 }
 @media screen and (min-width: 0px) and (max-width: 800px) {
@@ -449,7 +545,14 @@ select{
     #next{
         display: none;
     }
-    #reservation #btnSubmitResa2 #submitResa2{
+    #reservation #btnSubmitResa2 #submitResa2,
+    #navOrdi,
+    #priceBack, #descBack,
+    #priceBackForeach, #descBackForeach,
+    #modPlatsBack, #supPlatsBack,
+    #fistnameResaBack, #dateResaBack, #hourResaBack, #nbPersResaBack, #numTableResaBack,
+    #fistnameResaBackForeach, #dateResaBackForeach, #hourResaBackForeach, #nbPersResaBackForeach, #numTableResaBackForeach,
+    #modResaBack, #supResaBack{
         display: none !important;
     }
     #submitResaResponsive{
@@ -466,6 +569,10 @@ select{
     }
     #formWidth{
         max-width: 100%;
+        font-size: 14px;
+    }
+    #formWidth p{
+        font-size: 14px;
     }
     #planWidth{
          max-width: 100%;
@@ -490,22 +597,45 @@ select{
     #selectHourResaWidth,
     #inputNbPersResaWidth,
     #selectNumTableWidth{
-         max-width: 100%;
-         padding-left: 0;
-         text-align: center;
+        max-width: 100% !important;
+        padding-left: 0;
+        text-align: center;
     }
-    #margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats{
+    #reservation #inputLastnameResa,
+    #reservation #inputFirstnameResa,
+    #reservation #inputTelResa,
+    #reservation #inputMailResa,
+    #reservation #inputDateResa,
+    #reservation #selectHourResa,
+    #reservation #inputNbPersResa,
+    #reservation #selectNumTable {
+        width: 100%;
+    }
+    #margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats, #margAffPlats, #margListResa, #margAffResa{
         margin-bottom: 20px;
-        margin-left: 20px;
+        padding-left: 15px;
+        margin-left: 0px;
     }
-    #catSouscatResponsiveMobile{
+    #catSouscatResponsiveMobile,
+    #navResp,
+    #affPlatsBack, #affResaBack{
         display: block !important;
     }
-    #catSouscatOrdi, #selectCatSouscatOrdi{
+    #catSouscatOrdi,
+    #selectCatSouscatOrdi{
         display: none !important;
     }
     #labelCatResponsiveMobile, #labelSouscatResponsiveMobile{
         margin-top: -20px;
+    }
+    .caption span.border {
+        padding: 0px !important;
+    }
+    #navResp{
+        bottom: -20px;
+    }
+    #buttonOpenCart{
+        margin : 0;
     }
 }
 /*********FIN MEDIA QUERIES*****/

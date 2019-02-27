@@ -101,7 +101,7 @@
         if (empty($_POST['selectNumTable'])) {
             $arrayError['numTableErr'] = 'Le numéro de la table est requis.';
         } else {
-            $resaOBJ->reservation_numTable = test_input($_POST['selectNumTable']);
+            $resaOBJ->tables_id = test_input($_POST['selectNumTable']);
             unset($arrayError['numTableErr']);
         }
         // VALIDER

@@ -3,7 +3,7 @@
 <!-- CONTENT PAGE -->
 <div class="container marginTop">
     <div class="row justify-content-center" id="margAjoutPlats">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <?php if ($addSuccess) { ?>
                 <p>Plats bien ajouté !</p>
                 <a href="ajout-plats.php" class="btn btn-primary btnHomeBack">Ajouter un nouveau plat</a>
@@ -114,8 +114,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
             <?php } ?>
         </div>
     </div>

@@ -11,8 +11,8 @@
                 <thead>
                     <tr>
                         <th scope="col" class="name"> Nom </th>
-                        <th scope="col" class="price"> Prix </th>
-                        <th scope="col" class="desc"> Description </th>
+                        <th scope="col" class="price" id="priceBack"> Prix </th>
+                        <th scope="col" class="desc" id="descBack"> Description </th>
                         <th scope="col" class="cat"> Catégories </th>
                         <th scope="col" class="subCat"> Sous-catégories </th>
                         <th scope="col" class="process"> Processus </th>
@@ -21,14 +21,15 @@
                 <tbody>
                     <?php foreach ($arrayDishes as $dishes) { ?>
                         <tr>
-                            <th scope="row"> <?= $dishes->Plats ?> </th>
-                            <th scope="row"><?= $dishes->Prix ?></th>
-                            <th scope="row"><?= $dishes->Description ?></th>
-                            <th scope="row"><?= $dishes->Categories ?></th>
-                            <th scope="row"><?= $dishes->SousCategories ?></th>
+                            <th scope="row"> <?= $dishes->dishes_name ?> </th>
+                            <th scope="row" id="priceBackForeach"><?= $dishes->dishes_price ?></th>
+                            <th scope="row" id="descBackForeach"><?= $dishes->dishes_description ?></th>
+                            <th scope="row"><?= $dishes->categories_name ?></th>
+                            <th scope="row"><?= $dishes->subcategories_name ?></th>
                             <th scope="row">
-                                <a href="modifier-plats.php?id=<?= $dishes->dishes_id ?>" class="btn btn-warning" >Modifier</a>
-                                <a href="supprimer-plats.php?id=<?= $dishes->dishes_id ?>" class="btn btn-danger" >Supprimer</a>
+                                <a href="affiche-plat.php?id=<?= $dishes->dishes_id ?>" class="btn btn-warning" id="affPlatsBack" style="display: none;">Afficher</a>
+                                <a href="modifier-plats.php?id=<?= $dishes->dishes_id ?>" class="btn btn-warning" id="modPlatsBack">Modifier</a>
+                                <a href="supprimer-plats.php?id=<?= $dishes->dishes_id ?>" class="btn btn-danger" id="supPlatsBack">Supprimer</a>
                             </th>
                         </tr>
                     <?php } ?>

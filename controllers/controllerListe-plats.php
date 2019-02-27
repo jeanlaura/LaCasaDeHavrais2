@@ -1,4 +1,5 @@
 <?php
+    $_SESSION['cart'] = !isset($_SESSION['cart']) ? [] : $_SESSION['cart'];
     require_once 'models/database.php';
     require_once 'models/modelPlats.php';
     // Instanciation de l'objet Hospital contenant les méthodes utilisées
@@ -18,4 +19,12 @@
     
     //DESSERTS
     $arrayDishesDessert = $dishesOBJ->listDishesDesserts();
-?>
+    
+    if(isset($_POST['addOnCart'])){
+        //var_dump($_POST['addOnCart']);
+        if($dishesOBJ->getDish($_POST['addOnCart'])) {
+            $_SESSION['cart'][] = $_POST['addOnCart'];
+        }
+    }
+    
+    ?>

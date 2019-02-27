@@ -1,18 +1,14 @@
 <?php
-    class reservation extends database {
+    class customers extends database {
         // champs de la table patients
-        public $reservation_id;
-        public $reservation_lastname;
-        public $reservation_firstname;
-        public $reservation_numTel;
-        public $reservation_mail;
-        public $reservation_dateResa;
-        public $reservation_hourResa;
-        public $reservation_nbPers;
-        public $reservation_arrive;
-        public $tables_id;
-        public $reservation_mailConfirm;
-        public $reservation_smsConfirm;
+        public $customers_id;
+        public $customers_lastname;
+        public $customers_firstname;
+        public $customers_mail;
+        public $customers_phone;
+        public $customers_readyHour;
+        public $customersToDishes_quantity;
+        public $dishes_id;
         /**
          * Méthode permettant d'ajouter un patient
          * @return exécute la requête pour ajouter un patient
@@ -20,24 +16,25 @@
         function addResa() {
             // Ajouter une réservation
             $sql = $this->database->prepare('
-                    INSERT INTO `lcdh_reservation` (`reservation_lastname`, `reservation_firstname`, `reservation_numTel`, `reservation_mail`, `reservation_dateResa`, `reservation_hourResa`, `reservation_nbPers`, `tables_id`)
-                    VALUES (:lastnameResa, :firstnameResa, :numTelResa, :mailResa, :dateResa, :hourResa, :nbPersResa, :tables_id)
+                    INSERT INTO `lcdh_customers` (`customers_lastname`, `customers_firstname`, `customers_mail`, `customers_phone`, `customers_readyHour`, `customersToDishes_quantity`, `dishes_id`)
+                    VALUES (:lastnameCusto, :firstnameCusto, :mailCusto, :phoneCusto, :readyHourCusto, :customersToDishes_quantity, :dishes_id)
+                    INNER JOIN `lcdh_customers` ON `lcdh_customers`.`customers_id` = `lcdh_customerstodishes`.`customers_id`
                 ');
-            $sql->bindValue(':lastnameResa',$this->reservation_lastname,PDO::PARAM_STR);
-            $sql->bindValue(':firstnameResa',$this->reservation_firstname,PDO::PARAM_STR);
-            $sql->bindValue(':numTelResa',$this->reservation_numTel,PDO::PARAM_STR);
-            $sql->bindValue(':mailResa',$this->reservation_mail,PDO::PARAM_STR);
-            $sql->bindValue(':dateResa',$this->reservation_dateResa,PDO::PARAM_STR);
-            $sql->bindValue(':hourResa',$this->reservation_hourResa,PDO::PARAM_STR);
-            $sql->bindValue(':nbPersResa',$this->reservation_nbPers,PDO::PARAM_INT);
-            $sql->bindValue(':tables_id',$this->reservation_tablesId,PDO::PARAM_INT);
+            $sql->bindValue(':lastnameCusto',$this->customers_lastname,PDO::PARAM_STR);
+            $sql->bindValue(':firstnameCusto',$this->customers_firstname,PDO::PARAM_STR);
+            $sql->bindValue(':mailCusto',$this->customers_mail,PDO::PARAM_STR);
+            $sql->bindValue(':phoneCusto',$this->customers_phone,PDO::PARAM_STR);
+            $sql->bindValue(':readyHourCusto',$this->customers_readyHour,PDO::PARAM_STR);
+            $sql->bindValue(':$customersToDishes_quantity',$this->customersToDishes_quantity,PDO::PARAM_INT);
+            $sql->bindValue(':dishes_id',$this->dishes_id,PDO::PARAM_INT);
             return $sql->execute();
         }
         // Liste des réservation au total
-        function listResa() {
+        function listCusto() {
             $sql = $this->database->query('
-                SELECT `reservation_id`, `reservation_lastname`, `reservation_firstname`, `reservation_numTel`, `reservation_mail`, `reservation_dateResa`, `reservation_hourResa`, `reservation_nbPers`, `tables_id`
-                FROM `lcdh_reservation`
+                SELECT `customers_id`, `customers_lastname`, `customers_firstname`, `customers_mail`, `customers_phone`, `customers_readyHour`, `customersToDishes_quantity`, `dishes_id`
+                FROM `lcdh_customers`
+                INNER JOIN `lcdh_customers` ON `lcdh_customers`.`$customers_id` = `lcdh_customerstodishes`.`$customers_id`
             ');
             $result = $sql->fetchAll(PDO::FETCH_OBJ);
             return $result;
@@ -75,19 +72,6 @@
             $sql->bindValue(':nbPersResa',$this->reservation_nbPers,PDO::PARAM_INT);
             $sql->bindValue(':tables_id',$this->reservation_tablesId,PDO::PARAM_INT);
             return $sql->execute();
-        }
-        //Liste de catégories
-        function listHour() {
-            $sql = $this->database->query('SELECT `reservation_hourResa` FROM `lcdh_reservation`');
-            $result = $sql->fetchAll(PDO::FETCH_OBJ);
-            return $result;
-        }
-        
-        //Liste de sous-catégories
-        function listTable() {
-            $sql = $this->database->query('SELECT `tables_id` FROM `lcdh_reservation`');
-            $result = $sql->fetchAll(PDO::FETCH_OBJ);
-            return $result;
         }
         //Suppression d'une réservation
         function deleteResa() {

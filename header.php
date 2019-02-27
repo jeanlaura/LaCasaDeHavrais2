@@ -18,7 +18,7 @@
 	<title>LA CASA DE HAVRAIS</title>
     </head>
     <body>
-	<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark justify-content-between">
+        <nav id="navOrdi" class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark justify-content-between">
             <div class="navbar-header">
 		<a class="navbar-brand" href="#accueil"><img src="../img/logo.png" alt="" width="250" height=""></a>
                 <button class="navbar-toggler" id="navbarButtonResponsive" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,33 @@
                         <a class="nav-link" id="nav_link3" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <button id="buttonOpenCart" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Panier</button>
+                        <button id="buttonOpenCart" type="button" class="btn" data-toggle="modal" data-target="#modalCart">Panier</button>
+                    </li>
+                </ul>
+            </div>
+	</nav>
+        <nav id="navResp" class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-dark justify-content-between" style="display: none;">
+            <div class="" id="navbarSupportedContent">
+		<ul class="ml-auto list-inline">
+                    <li class="nav-item list-inline-item">
+                        <a class="nav-link" id="nav_link1" href="#carte"><img id="imgNavRespCarte" src="../img/navbarResp/carte.png" /></a>
+                    </li>
+                    <li class="nav-item list-inline-item">
+                        <a class="nav-link" id="nav_link1" href="#menus"><img id="imgNavRespMenus" src="../img/navbarResp/menus.png" /></a>
+                    </li>
+                    <li class="nav-item list-inline-item">
+                        <a class="nav-link" id="nav_link2" href="#reservation"><img id="imgNavRespResa" src="../img/navbarResp/reservation.png" /></a>
+                    </li>
+                    <li class="nav-item list-inline-item">
+                        <a class="nav-link" id="nav_link3" href="#contact"><img id="imgNavRespcontact" src="../img/navbarResp/contact.png" /></a>
+                    </li>
+                    <li class="nav-item list-inline-item" id="navPanier">
+                        <button id="buttonOpenCart" type="button" class="btn" data-toggle="modal" data-target="#modalCart">
+                            <img id="imgNavRespPanier" src="../img/navbarResp/panier.png" />
+                            <?php if(isset($_SESSION['totalCart'])){ ?>
+                                <span class="badge badge-pill badge-danger"><?= $_SESSION['totalCart'] ?></span>
+                            <?php } ?>
+                        </button>
                     </li>
                 </ul>
             </div>
