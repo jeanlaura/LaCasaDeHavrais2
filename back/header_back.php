@@ -38,7 +38,7 @@
                 <li id="liTotalNavAdmin">
                     <ul class="collapsible collapsible-accordion" id="ulTotal">
                         <li id="liHome">
-                            <a class="collapsible-header waves-effect arrow-r" href="index_back.php">
+                            <a class="collapsible-header waves-effect arrow-r" href="index.php">
                                 Accueil Back
                             </a>
                         </li>

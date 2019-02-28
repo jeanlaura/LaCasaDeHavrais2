@@ -405,7 +405,8 @@ select{
 #margAjoutResa,
 #margAffPlats,
 #margListResa,
-#margAffResa{
+#margAffResa,
+#margSuppResa{
     margin-bottom: 20px;
     margin-left: 350px;
 }
@@ -471,6 +472,9 @@ select{
 }
 #tableAffPlats th, #tableAffPlats td{
     font-size: 14px;
+}
+#labelSelectNumTable, #labelSelectHourResa, #labelInputDateResa{
+    margin-top: -10px;
 }
 /**********************************************************************************************************************/
 /*********NAV ADMIN BACK***********/
@@ -611,7 +615,7 @@ select{
     #reservation #selectNumTable {
         width: 100%;
     }
-    #margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats, #margAffPlats, #margListResa, #margAffResa{
+    #margBienv, #margAjoutPlats, #margListPlats, #margModifPlats, #margSuppPlats, #margAffPlats, #margListResa, #margAffResa, #margSuppResa{
         margin-bottom: 20px;
         padding-left: 15px;
         margin-left: 0px;

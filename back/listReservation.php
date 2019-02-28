@@ -34,8 +34,8 @@
                             <th scope="row" id="numTableResaBackForeach"><?= $resa->tables_id ?></th>
                             <th scope="row">
                                 <a href="affiche-resa.php?idResa=<?= $resa->reservation_id ?>" class="btn btn-warning" id="affResaBack" style="display: none;">Afficher</a>
-                                <a href="modifier-reservation.php?id=<?= $resa->reservation_id ?>" class="btn btn-warning" id="modResaBack">Modifier</a>
-                                <a href="supprimer-reservation.php?id=<?= $resa->reservation_id ?>" class="btn btn-danger" id="supResaBack">Supprimer</a>
+                                <a href="modifier-reservation.php?idResa=<?= $resa->reservation_id ?>" class="btn btn-warning" id="modResaBack">Modifier</a>
+                                <a href="supprimer-reservation.php?idResa=<?= $resa->reservation_id ?>" class="btn btn-danger" id="supResaBack">Supprimer</a>
                             </th>
                         </tr>
                     <?php } ?>

@@ -26,5 +26,4 @@
             $_SESSION['cart'][] = $_POST['addOnCart'];
         }
     }
-    
-    ?>
+?>

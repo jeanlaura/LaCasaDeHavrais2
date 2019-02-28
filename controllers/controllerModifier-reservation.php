@@ -3,13 +3,13 @@
     require_once '../models/modelResa.php';
     // Instanciation de l'objet Hospital contenant les méthodes utilisées
     $resaOBJ = new reservation();
-//    if (isset($_GET['idResa'])) {
-//        $resaOBJ->reservation_id = $_GET['idResa'];
-//        $resa = $resaOBJ->displayResa();
-//    }
+    if (isset($_GET['idResa'])) {
+        $resaOBJ->reservation_id = $_GET['idResa'];
+        $resa = $resaOBJ->displayResa();
+    }
     $arrayHour = $resaOBJ->listHour(); //Tableau qui reprend la liste des catégories
     $arrayNumTable = $resaOBJ->listTable(); //Tableau qui reprend la liste des sous-catégories
-    $updateSuccess = false;
+    $updateResaSuccess = false;
     
     
     $today = date('Y-m-d'); // variable servant à initialiser le calendrier à la date du jour
@@ -114,8 +114,8 @@
         }
         // VALIDER
         if (isset($_REQUEST['submit']) && count($arrayError) == 0) {
-            $resaOBJ->addResa();
-            $addResaSuccess = true;
+            $resaOBJ->ModifyResa();
+            $updateResaSuccess = true;
         }
     }
 

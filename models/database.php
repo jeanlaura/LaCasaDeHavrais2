@@ -1,6 +1,6 @@
 <?php
     /**
-     * Classe permettant la connexion avec la base de donnée
+     * Classe permettant la connexion avec la base de données
      * @return Methods
      */ 
     class database {

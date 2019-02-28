@@ -30,7 +30,7 @@
             $sql->bindValue(':dateResa',$this->reservation_dateResa,PDO::PARAM_STR);
             $sql->bindValue(':hourResa',$this->reservation_hourResa,PDO::PARAM_STR);
             $sql->bindValue(':nbPersResa',$this->reservation_nbPers,PDO::PARAM_INT);
-            $sql->bindValue(':tables_id',$this->reservation_tablesId,PDO::PARAM_INT);
+            $sql->bindValue(':tables_id',$this->tables_id,PDO::PARAM_INT);
             return $sql->execute();
         }
         // Liste des réservation au total
@@ -73,7 +73,7 @@
             $sql->bindValue(':dateResa',$this->reservation_dateResa,PDO::PARAM_STR);
             $sql->bindValue(':hourResa',$this->reservation_hourResa,PDO::PARAM_STR);
             $sql->bindValue(':nbPersResa',$this->reservation_nbPers,PDO::PARAM_INT);
-            $sql->bindValue(':tables_id',$this->reservation_tablesId,PDO::PARAM_INT);
+            $sql->bindValue(':tables_id',$this->tables_id,PDO::PARAM_INT);
             return $sql->execute();
         }
         //Liste de catégories
@@ -82,7 +82,6 @@
             $result = $sql->fetchAll(PDO::FETCH_OBJ);
             return $result;
         }
-        
         //Liste de sous-catégories
         function listTable() {
             $sql = $this->database->query('SELECT `tables_id` FROM `lcdh_reservation`');
